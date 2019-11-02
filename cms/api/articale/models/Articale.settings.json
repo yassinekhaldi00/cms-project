@@ -1,0 +1,37 @@
+{
+  "connection": "default",
+  "collectionName": "titles",
+  "info": {
+    "name": "articale",
+    "description": "travel articales"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "minLength": 10,
+      "required": true,
+      "unique": true,
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "author": {
+      "model": "user",
+      "via": "articales",
+      "plugin": "users-permissions"
+    }
+  }
+}
